@@ -2,10 +2,11 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h2>{{ $question->answers_count . " " . Str::plural('Answer', $question->answers_count) }}</h2>
+                <h2>{{ $answersCount . " " . Str::plural('Answer', $question->answers_count) }}</h2>
             </div>
             <div class="card-body">
-                @foreach($question->answers as $answer)
+                @include('layouts._messages')
+                @foreach($answers as $answer)
                     <div class="media">
                         <div class="counters">
                             <div class="d-flex flex-column vote-controls">

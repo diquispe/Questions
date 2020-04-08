@@ -52,9 +52,10 @@
             </div>
         </div>
         @include('answers._index', [
-            'answers' => $question->anweors,
-            'answersCount1' =>$question->answers_count
+            'answers' => $question->answers,
+            'answersCount' =>$question->answers_count
            ])
+         @include('answers._create')
     </div>
 
 @endsection
