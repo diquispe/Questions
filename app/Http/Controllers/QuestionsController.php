@@ -85,7 +85,7 @@ class QuestionsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Question  $question
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
@@ -98,7 +98,7 @@ class QuestionsController extends Controller
         */
         $this->authorize("update", $question);
         $question->update($request->only('title', 'body'));
-        return redirect()-route('questions.index')->with('success', "Tu pregunta ha sido actualizada");
+        return redirect()->route('questions.index')->with('success', "Tu pregunta ha sido actualizada");
 
     }
 

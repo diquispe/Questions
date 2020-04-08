@@ -3,12 +3,14 @@
 
 // Variables
 @import 'variables';
+$fa-font-path: '../webfonts';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
 .counters {
-    margin-right: 30px;
     font-size: 10px;
     text-align: center;
     b {
@@ -37,7 +39,40 @@
     .view {
         margin-top: 10px;
     }
+    span {
+        &.votes-count {
+            font-size: 25px;
+        }
+        &.favorites-count {
+            font-size: 12px;
+        }
+    }
 
+    a {
+        cursor: pointer;
+        color: $gray-600;
+
+        &off, &.off:hover {
+            color: $gray-500    ;
+        }
+        &.favorited, &favorited:hover {
+            color: $warning;
+        }
+
+    }
+
+    .vote-controls {
+        margin-left: 30px;
+        min-height: 60px;
+        margin-right: 30px;
+        color: $gray-700;
+    }
+    span, a {
+        display: block;
+    }
+    .vote-accepted {
+        color: $green;
+    }
 }
 
 form.form-delete {

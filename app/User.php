@@ -46,4 +46,19 @@ class User extends Authenticatable
         return '#';
     }
 
+    public function answers() {
+        return $this->hasMany(Answer::class);
+    }
+
+    /*
+     * Creando nuevo accesor parab el ava avatar
+     */
+    public function getAvatarAttribute() {
+        $email = $this->email;
+        $size = 32;
+
+
+       return  "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . "&s=" . $size;
+        //return 'https://thispersondoesnotexist.com/image';
+    }
 }
